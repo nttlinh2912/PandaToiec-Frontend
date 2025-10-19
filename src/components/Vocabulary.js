@@ -8,7 +8,7 @@ export default function Vocabulary() {
   const [vocabularyUpdateSelected, setVocabularyUpdateSelected] = useState(null);
   const [showAddVocabularyForm, setShowAddVocabularyForm] = useState(false);
   const [showUpdateVocabularyForm, setShowUpdateVocabularyForm] = useState(false);
-  const [workNew, setWorkNew] = useState("");
+  const [wordNew, setWordNew] = useState("");
   const [definitionNew, setDefinitionNew] = useState("");
 
   // get all list vocabulary
@@ -27,11 +27,11 @@ export default function Vocabulary() {
   const handleAddVocabulary = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const work = form.elements[0].value;
+    const word = form.elements[0].value;
     const definition = form.elements[1].value;
 
     const newVocabulary = {
-      work: work,
+      word: word,
       definition: definition,
     }
 
@@ -63,11 +63,11 @@ export default function Vocabulary() {
   const handleUpdateVocabulary = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const work = form.elements[0].value;
+    const word = form.elements[0].value;
     const definition = form.elements[1].value;
 
     const updateVocabulary = {
-      work: work,
+      word: word,
       definition: definition,
     }
 
@@ -139,13 +139,13 @@ export default function Vocabulary() {
         {vocabularyList.map((vocabulary) => (
           <div key={vocabulary.id}>
             <div>
-              <h3>{vocabulary.work}  {vocabulary.definition}</h3>
+              <h3>{vocabulary.word}  {vocabulary.definition}</h3>
             </div>
 
             <div>
               <button onClick={() => {
                 setVocabularyUpdateSelected(vocabulary);
-                setWorkNew(vocabulary.work);
+                setWordNew(vocabulary.word);
                 setDefinitionNew(vocabulary.definition);
                 setShowUpdateVocabularyForm(true);
               }}>Edit</button>
@@ -164,16 +164,16 @@ export default function Vocabulary() {
               <div>
                 <input
                   type="text"
-                  value={workNew}
-                  placeholder="work"
-                  onChange={(e) => setWorkNew(e.target.value)} />
+                  value={wordNew}
+                  placeholder="Word"
+                  onChange={(e) => setWordNew(e.target.value)} />
 
               </div>
               <div>
                 <input
                   type="text"
                   value={definitionNew}
-                  placeholder="definition"
+                  placeholder="Definition"
                   onChange={(e) => setDefinitionNew(e.target.value)} />
               </div>
 
