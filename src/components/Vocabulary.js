@@ -118,19 +118,29 @@ export default function Vocabulary() {
           <div>
             <form onSubmit={handleAddVocabulary}>
               <div>
-                <input type="text" placeholder="Word
-                " />
+                <input type="text" placeholder="Word" />
               </div>
               <div>
                 <input type="text" placeholder="Definition" />
               </div>
+              <div>
+                <input type="text" placeholder="Phonetic" />
+              </div>
+              <select>
+                <option value="">Level</option>
+                <option value="A1">A1</option>
+                <option value="A2">A2</option>
+                <option value="B1">B1</option>
+                <option value="B2">B2</option>
+              </select>
+
 
               <div>
                 <button type="submit">Add Vocabulary</button>
                 <button onClick={() => setShowAddVocabularyForm(false)}>Cancel</button>
               </div>
 
-            </form>            
+            </form>
           </div>
         </div>
       )}
